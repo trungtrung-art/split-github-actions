@@ -1,0 +1,26 @@
+name: UI Test with Docker
+
+# Khi nào chạy workflow
+on:
+  push:
+    branches: [main] # Chạy khi push lên nhánh main
+  pull_request:
+    branches: [main] # Chạy khi tạo pull request vào main
+
+# Công việc cần làm
+jobs:
+  test-ui:
+    runs-on: ubuntu-latest # Máy ảo Ubuntu do GitHub cung cấp
+
+    steps:
+      # Bước 1: Checkout mã nguồn từ repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Bước 2: Build Docker image từ Dockerfile
+      - name: Build Docker image
+        run: docker build -t my-ui-test:latest .
+
+      # Bước 3: Chạy test trong container
+      - name: Run UI tests
+        run: docker run my-ui-test:latest
