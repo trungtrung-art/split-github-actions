@@ -17,7 +17,7 @@
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build"
 	},
-	"homepage": "https://trungtrung-art.github.io/split-github-actions",
+	"homepage": "https://trungtrung-art.github.io/split-github-actions/",
 	"eslintConfig": {
 		"extends": [
 			"react-app",
